@@ -6,13 +6,18 @@ public class Platform {
 
 	public Platform() {
 	}
+        public ArrayList<Course> listeCours = new ArrayList<>();
+        public ArrayList <Person> studentsList = new ArrayList();
 
 	/**
 	 * Ajoute un cours à la liste de cours dispensés
 	 * @param c le cours à ajouter (non null)
 	 */
 	public void addCourse(Course c) {
-		throw new UnsupportedOperationException("Pas encore implémenté");
+            if (null == c) {
+                throw new IllegalArgumentException ("il n'y a pas encore de cours");
+            }
+            listeCours.add(c);
 	}
 
 	/**
