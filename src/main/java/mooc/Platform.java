@@ -39,6 +39,9 @@ public class Platform {
 	 * @param s  l'étudiant à inscrire (non null)
 	 */
 	public void registerStudent(Person s) {
+            if (null == s) {
+                throw new IllegalArgumentException ("Aucun étudiant n'est pris en compte");
+            }
             
 	}
 
@@ -50,7 +53,14 @@ public class Platform {
 	 * ou si le cours n'est pas dispensé par l'université
 	 */
 	public void enroll(Person s, Course c) throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
+            if (null == s) {
+                throw new IllegalArgumentException ("Aucun étudiant n'est inscrit");
+            }
+            if (null == c) {
+                throw new IllegalArgumentException ("Aucun cours n'est dispensé");
+            }
+        
+            
 	}
 
 	/**
@@ -60,8 +70,11 @@ public class Platform {
 	 * @throws Exception si l'étudiant a déjà une note àce cours
 	 */
 	public void withdraw(Person s, Course c) throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
-	}
+                if (mark != 0) {
+                throw new IllegalArgumentException ("L'étudiant possède déjà une note");
+                }
+                
+        }
 
 	/**
 	 * Donner une note à un étudiant pour un cours
@@ -73,8 +86,16 @@ public class Platform {
 	 * ou si l'étudiant a déjà une note pour ce cours
 	 */
 	public void setMark(Person s, Course c, int mark) throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
-	}
+            if (null == s) {
+                throw new IllegalArgumentException ("Aucun étudiant n'est inscrit");
+            }
+            if (null == c) {
+                throw new IllegalArgumentException ("Aucun cours n'est dispensé");
+            }
+            if (mark != 0) {
+                throw new IllegalArgumentException ("L'étudiant possède déjà une note");
+                }
+        }
 
 	/**
 	 * Connaitre la note d'un étudiant pour un cours
@@ -86,7 +107,15 @@ public class Platform {
 	 * ou si l'étudiant n'a pas encore de note à ce cours
 	 */
 	public int getMark(Person s, Course c) throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
+            if (null == s) {
+                throw new IllegalArgumentException ("Aucun étudiant n'est inscrit");
+            }
+            if (null == c) {
+                throw new IllegalArgumentException ("Aucun cours n'est dispensé");
+            }
+            if (mark != 0) {
+                throw new IllegalArgumentException ("L'étudiant possède déjà une note");
+                }
 	}
 
 	/**
